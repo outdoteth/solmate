@@ -74,7 +74,7 @@ abstract contract ERC20 {
     }
 
     function transfer(address to, uint256 amount) public virtual returns (bool) {
-        // update balance in assembly: saves 56 gas
+        // balanceOf[msg.sender] -= amount
         assembly {
             // get the storage pointer for balanceOf[msg.sender]
             // storage pointer == keccak256(msg.sender . balanceOf_slot)
